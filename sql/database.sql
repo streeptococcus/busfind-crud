@@ -40,4 +40,3 @@ CREATE TABLE IF NOT EXISTS paradas (
 
 ALTER TABLE linhas ADD id_parada_fk INT NOT NULL;
 ALTER TABLE linhas ADD CONSTRAINT parada_fk FOREIGN KEY (id_parada_fk) REFERENCES paradas(id_parada);
-
