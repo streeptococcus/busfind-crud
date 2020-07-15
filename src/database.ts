@@ -8,7 +8,7 @@ export async function connect() {
         password: process.env.DB_PASS,
         database: 'busfind',
         connectionLimit: 10
-
+        
     });
 
     return connection;
