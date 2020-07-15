@@ -1,8 +1,8 @@
-import { Router } from 'express';
-import { WelcomeSpaceCowboy } from '../controllers/index.controller';
+import { Router } from 'express'
+import { Welcome } from '../controllers/index.controller'
 
-const router = Router();
+const router = Router()
 
-router.route('/').get(WelcomeSpaceCowboy);
+router.route('/').get(Welcome)
 
-export default router;
+export default router

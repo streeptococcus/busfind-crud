@@ -1,18 +1,23 @@
-import { Router } from 'express';
-import { getVeiculos, createVeiculo, getVeiculo, deleteVeiculo, updateVeiculo, getVeiculosByLinha } from '../controllers/veiculo.controller';
+import { Router } from 'express'
+import {
+  getVeiculos,
+  createVeiculo,
+  getVeiculo,
+  deleteVeiculo,
+  updateVeiculo,
+  getVeiculosByLinha,
+} from '../controllers/veiculo.controller'
 
-const router = Router();
+const router = Router()
 
-router.route('/')
-    .get(getVeiculos)
-    .post(createVeiculo);
+router.route('/').get(getVeiculos).post(createVeiculo)
 
-router.route('/:veiculoId')
-    .get(getVeiculo)
-    .delete(deleteVeiculo)
-    .put(updateVeiculo);
+router
+  .route('/:veiculoId')
+  .get(getVeiculo)
+  .delete(deleteVeiculo)
+  .put(updateVeiculo)
 
-router.route('/linha=:linhaId')
-     .get(getVeiculosByLinha);
+router.route('/?linha=:linhaId').get(getVeiculosByLinha)
 
-export default router;
+export default router
