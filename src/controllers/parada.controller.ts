@@ -2,7 +2,10 @@ import { Request, Response } from 'express'
 import { connect } from '../database'
 import { Parada } from '../interface/parada.interface'
 
-export async function getParadas(req: Request, res: Response): Promise<Response> {
+export async function getParadas(
+  req: Request,
+  res: Response
+): Promise<Response> {
   const conn = await connect()
   const paradas = await conn.query('SELECT * FROM paradas')
   return res.json(paradas[0])
@@ -17,10 +20,15 @@ export async function createParada(req: Request, res: Response) {
   })
 }
 
-export async function getParada(req: Request, res: Response): Promise<Response> {
+export async function getParada(
+  req: Request,
+  res: Response
+): Promise<Response> {
   const id = req.params.paradaId
   const conn = await connect()
-  const parada = await conn.query('SELECT * FROM paradas WHERE id_parada = ?', [id])
+  const parada = await conn.query('SELECT * FROM paradas WHERE id_parada = ?', [
+    id,
+  ])
   return res.json(parada[0])
 }
 
@@ -41,4 +49,16 @@ export async function updateParada(req: Request, res: Response) {
   return res.json({
     message: 'A parada foi atualizada com sucesso!',
   })
+}
+
+export async function getParadaByPosicao(
+  req: Request,
+  res: Response
+): Promise<Response> {
+  const lati = req.params.posicaoLati
+  const longi = req.params.posicaoLongi
+  const conn = await connect()
+  const paradas = await conn.query(
+    'SELECT id_parada, nome_parada, paradas.lati, paradas.longi, paradas.created_at, paradas.modified_at FROM paradas INNER JOIN posicao WHERE posicao.lati = ? AND  posicao.longi = ?', [lati, longi])
+  return res.json(paradas[0])
 }

@@ -12,7 +12,6 @@
   "ignorePatterns": ["**/interface"],
   "rules": {
     "no-unused-vars": "off",
-    "typescript/no-unused-vars": ["error"],
     "quotes": [
       2,
       "single",

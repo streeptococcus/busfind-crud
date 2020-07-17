@@ -1,20 +1,20 @@
-import { Request, Response } from 'express'
+import { Request, Response} from 'express'
 import { connect } from '../database'
 import { Linha } from '../interface/linha.interface'
 
-export async function getLinhas ( req: Request, res: Response ): Promise<Response> {
+export async function getLinhas (req: Request, res: Response ): Promise<Response> {
   const conn = await connect()
   const linhas = await conn.query('SELECT * FROM linhas')
   return res.json(linhas[0])
 }
 
-export async function createLinha (req: Request, res: Response) {
+export async function createLinha(req: Request, res: Response) {
   const newLinha: Linha = req.body
-  const conn = await connect()
-  conn.query('INSERT INTO linhas SET ?', [newLinha])
-  return res.json({
-    message: 'A linha foi criada com sucesso!',
-  })
+    const conn = await connect()
+    conn.query('INSERT INTO linhas SET ?', [newLinha])
+    return res.json({
+      message: 'A linha foi criada com sucesso!',
+    })
 }
 
 export async function getLinha (req: Request, res: Response) : Promise<Response> {

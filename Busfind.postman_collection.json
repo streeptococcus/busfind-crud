@@ -1,0 +1,623 @@
+{
+	"info": {
+		"_postman_id": "07d356a0-c943-4e07-a4fb-ef878d76e727",
+		"name": "Busfind",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Linhas",
+			"item": [
+				{
+					"name": "Buscar linhas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/linhas/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"linhas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar linha por idetificação",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/linhas/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"linhas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar uma linha",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_linha\": \"null\",\r\n    \"id_parada_fk\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/linhas/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"linhas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar uma linha por identificação",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/linhas/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"linhas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar uma linha por identificação",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_linha\": \"Teste\",\r\n    \"id_parada_fk\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/linhas/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"linhas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar linhas por paradas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/linhas/?parada=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"linhas",
+								""
+							],
+							"query": [
+								{
+									"key": "parada",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Paradas",
+			"item": [
+				{
+					"name": "Buscar paradas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/paradas/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"paradas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar parada por idetificação",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/paradas/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"paradas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar uma parada",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_parada\": \"\",\r\n    \"lati\": \"\",\r\n    \"longi\": \"\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/paradas/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"paradas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar uma linha por identificação",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/paradas/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"paradas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar uma linha por identificação",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_parada\": \"\",\r\n    \"lati\": \"\",\r\n    \"longi\": \"\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/paradas/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"paradas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar paradas por posição",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/parada/?latitutde=12345&longitutde=67890",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"parada",
+								""
+							],
+							"query": [
+								{
+									"key": "latitutde",
+									"value": "12345"
+								},
+								{
+									"key": "longitutde",
+									"value": "67890"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "03998e84-f124-4e2b-affe-88a611d4d8d4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fa3a0de4-07ed-48c2-9d1d-72bca61b2222",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Posições",
+			"item": [
+				{
+					"name": "Buscar posições",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/posicoes/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posicoes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar posição por idetificação",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/posicoes/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posicoes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar uma posição",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lati\": \"\",\r\n    \"longi\": \"\",\r\n    \"id_veiculo_fk\": \"\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/posicoes/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posicoes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar uma posição por identificação",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/posicoes/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posicoes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar uma posição por identificação",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lati\": \"\",\r\n    \"longi\": \"\",\r\n    \"id_veiculo_fk\": \"\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/posicoes/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posicoes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d11fcda1-b9dd-4ed0-afb0-4cb1d31e854b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4c462ff9-d7c0-4830-850d-51fafec92ec0",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Veículos",
+			"item": [
+				{
+					"name": "Buscar veículos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/veiculos/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"veiculos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar veículos por idetificação",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/veiculos/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"veiculos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar um veículo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome_veiculo\": \"\",\r\n    \"modelo_veiculo\": \"\",\r\n    \"id_linha_fk\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/veiculos/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"veiculos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar um veículo por identificação",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/veiculos/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"veiculos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar um veículo por identificação",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/veiculos/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"veiculos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar veículos por linha",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/veiculos/linha/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"veiculos",
+								"linha",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "653adb5e-e1dd-491f-861f-83b0c46779c6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d880613c-28b5-4a3a-aae1-1d07b5889f77",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4c32d172-0d02-4aac-bb9d-d3c2acf40994",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7227cc83-1f6a-4928-9a7a-e6ec267ce38b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "0ece5d02-eedc-497e-8809-0f3346745359",
+			"key": "baseUrl",
+			"value": "http://localhost:4001"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

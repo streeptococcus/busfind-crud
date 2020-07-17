@@ -5,6 +5,7 @@ import {
   getParada,
   deleteParada,
   updateParada,
+  getParadaByPosicao
 } from '../controllers/parada.controller'
 
 const router = Router()
@@ -16,5 +17,9 @@ router
   .get(getParada)
   .delete(deleteParada)
   .put(updateParada)
+
+router
+  .route('/parada/?latitude=:lati&longitude=:longi')
+  .get(getParadaByPosicao)
 
 export default router

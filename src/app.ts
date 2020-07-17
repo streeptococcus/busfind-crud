@@ -1,5 +1,8 @@
 import express, { Application } from 'express'
 import morgan from 'morgan'
+import swaggerJsDocs from 'swagger-jsdoc'
+import * as swaggerOptions from '../swagger.json'
+import swaggerUi from 'swagger-ui-express'
 
 // Routes
 import IndexRoutes from './routes/index.routes'
@@ -7,6 +10,7 @@ import LinhasRoutes from './routes/linha.routes'
 import ParadasRoutes from './routes/parada.routes'
 import VeiculosRoutes from './routes/veiculo.routes'
 import PosicoesRoutes from './routes/posicao.routes'
+
 
 export class App {
 
@@ -17,6 +21,11 @@ export class App {
     this.settings()
     this.middlewares()
     this.routes()
+    // this.app.use(
+    //   '/api-docs',
+    //   swaggerUi.serve,
+    //   swaggerUi.setup(swaggerDocument)
+    // )
   }
 
   settings() {
@@ -34,6 +43,7 @@ export class App {
     this.app.use('/paradas', ParadasRoutes)
     this.app.use('/veiculos', VeiculosRoutes)
     this.app.use('/posicoes', PosicoesRoutes)
+    this.app.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerOptions))
   }
 
   async start() {

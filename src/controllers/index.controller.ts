@@ -1,5 +1,5 @@
-import { Request, Response } from 'express'
+import { Request, Response, ErrorRequestHandler } from 'express'
 
 export function Welcome(req: Request, res: Response): Response {
-  return res.json('Bem vindo a Busfind API!')
+    return res.json('Bem vindo a Busfind API!')
 }

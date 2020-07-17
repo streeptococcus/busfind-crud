@@ -1,0 +1,687 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Busfind API",
+    "version": "1.0.0",
+    "description": "API para mapear o transporte público da cidade de São Paulo baseado nos dados da API Olho Vivo"
+  },
+  "host": "localhost:4001",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Linhas",
+      "description": "Linhas do transporte público da cidade de São Paulo"
+    },
+    {
+      "name": "Paradas",
+      "description": "Paradas do transporte público da cidade de São Paulo"
+    },
+    {
+      "name": "Posições",
+      "description": "Posições do transporte público da cidade de São Paulo"
+    },
+    {
+      "name": "Veículos",
+      "description": "Veículos do transporte público da cidade de São Paulo"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["aplication/json"],
+  "produces": ["aplication/json"],
+  "definitions": {
+    "idLinha": {
+      "type": "object",
+      "properties": {
+        "id_linha": {
+          "type": "integer"
+        }
+      }
+    },
+    "idParada": {
+      "type": "object",
+      "properties": {
+        "id_parada": {
+          "type": "integer"
+        }
+      }
+    },
+    "paradaId": {
+      "type": "object",
+      "properties": {
+        "id_parada_fk": {
+          "type": "integer"
+        }
+      }
+    },
+    "linhaId": {
+      "type": "object",
+      "properties": {
+        "id_linha_fk": {
+          "type": "integer"
+        }
+      }
+    },
+
+    "idPosicao": {
+      "type": "object",
+      "properties": {
+        "id_posicao": {
+          "type": "integer"
+        }
+      }
+    },
+    "idVeiculo": {
+      "type": "object",
+      "properties": {
+        "id_veiculo": {
+          "type": "integer"
+        }
+      }
+    },
+    "Latitude&Longitude": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        }
+      }
+    },
+    "Linha": {
+      "type": "object",
+      "properties": {
+        "id_linha": {
+          "type": "integer"
+        },
+        "nome_linha": {
+          "type": "string"
+        },
+        "id_parada_fk": {
+          "type": "integer"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "modified_at": {
+          "type": "string"
+        }
+      }
+    },
+    "Parada": {
+      "type": "object",
+      "properties": {
+        "id_parada": {
+          "type": "integer"
+        },
+        "nome_parada": {
+          "type": "string"
+        },
+        "lati": {
+          "type": "number"
+        },
+        "longi": {
+          "type": "number"
+        }
+      }
+    },
+    "Posição": {
+      "type": "object",
+      "properties": {
+        "id_posicao": {
+          "type": "integer"
+        },
+        "lati": {
+          "type": "number"
+        },
+        "longi": {
+          "type": "number"
+        },
+        "id_veiculo_fk": {
+          "type": "integer"
+        }
+      }
+    },
+    "Veículo": {
+      "type": "object",
+      "properties": {
+        "id_veiculo": {
+          "type": "integer"
+        },
+        "nome_veiculo": {
+          "type": "string"
+        },
+        "modelo_veiculo": {
+          "type": "string"
+        },
+        "id_linha_fk": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "paths": {
+    "/linhas": {
+      "get": {
+        "tags": ["Linhas"],
+        "summary": "Buscar as linhas registradas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Linha"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Linhas"],
+        "summary": "Registrar uma linha",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Registrar uma linha",
+            "schema": {
+              "$ref": "#/definitions/Linha"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Linha"
+            }
+          },
+          "400": {
+            "description": "Falha ao criar uma nova linha"
+          }
+        }
+      }
+    },
+    "/linhas/{idLinha}": {
+      "get": {
+        "tags": ["Linhas"],
+        "summary": "Buscar linha registrada por identificação",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "idLinha",
+            "description": "Buscar linha registrada por identificação",
+            "schema": {
+              "$ref": "#/definitions/idLinha"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/idLinha"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Linhas"],
+        "summary": "Deletar linha registrada por identificação",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "idLinha",
+            "description": "Deletar linha registrada por identificação",
+            "schema": {
+              "$ref": "#/definitions/idLinha"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/idLinha"
+            }
+          },
+          "400": {
+            "description": "Falha ao deletar uma linha"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Linhas"],
+        "summary": "Atualizar uma linha",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idLinha",
+            "description": "Atualizar uma linha",
+            "schema": {
+              "$ref": "#/definitions/Linha"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Linha"
+            }
+          },
+          "400": {
+            "description": "Falha ao atualizar uma nova linha"
+          }
+        }
+      }
+    },
+    "/linhas/?parada={paradaId}": {
+      "get": {
+        "tags": ["Linhas"],
+        "summary": "Buscar linhas registradas por parada",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "paradaId",
+            "description": "Buscar linhas registradas por parada",
+            "schema": {
+              "$ref": "#/definitions/paradaId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/paradaId"
+            }
+          }
+        }
+      }
+    },
+    "/paradas": {
+      "get": {
+        "tags": ["Paradas"],
+        "summary": "Buscar as paradas registradas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Parada"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Paradas"],
+        "summary": "Registrar uma parada",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Registrar uma parada",
+            "schema": {
+              "$ref": "#/definitions/Parada"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Parada"
+            }
+          },
+          "400": {
+            "description": "Falha ao criar uma nova parada"
+          }
+        }
+      }
+    },
+    "/paradas/{idParada}": {
+      "get": {
+        "tags": ["Paradas"],
+        "summary": "Buscar parada registrada por identificação",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "idParada",
+            "description": "Buscar parada registrada por identificação",
+            "schema": {
+              "$ref": "#/definitions/idParada"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/idParada"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Paradas"],
+        "summary": "Deletar parada registrada",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "idParada",
+            "description": "Deletar parada registrada",
+            "schema": {
+              "$ref": "#/definitions/idParada"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/idParada"
+            }
+          },
+          "400": {
+            "description": "Falha ao deletar uma parada"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Paradas"],
+        "summary": "Atualizar uma parada",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idParada",
+            "description": "Atualizar uma parada",
+            "schema": {
+              "$ref": "#/definitions/Parada"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Parada"
+            }
+          },
+          "400": {
+            "description": "Falha ao atualizar uma nova parada"
+          }
+        }
+      }
+    },
+    "/paradas/?latitude={latitude}&longitude={longitude}": {
+      "get": {
+        "tags": ["Paradas"],
+        "summary": "Buscar parada registrada por identificação de parada",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Latitude e longitude",
+            "description": "Buscar parada registrada por identificação de parada",
+            "schema": {
+              "$ref": "#/definitions/Latitude&Longitude"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/posicoes": {
+      "get": {
+        "tags": ["Posições"],
+        "summary": "Buscar as posições registradas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Posição"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Posições"],
+        "summary": "Registrar uma posição",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Registrar uma posição",
+            "schema": {
+              "$ref": "#/definitions/Posição"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Posição"
+            }
+          },
+          "400": {
+            "description": "Falha ao criar uma nova posição"
+          }
+        }
+      }
+    },
+    "/posicoes/{idPosicao}": {
+      "get": {
+        "tags": ["Posições"],
+        "summary": "Buscar posição registrada",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "idPosicao",
+            "description": "Buscar posição registrada",
+            "schema": {
+              "$ref": "#/definitions/idPosicao"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/idPosicao"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Posições"],
+        "summary": "Deletar posição registrada",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "idPosicao",
+            "description": "Deletar posição registrada",
+            "schema": {
+              "$ref": "#/definitions/idPosicao"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/idPosicao"
+            }
+          },
+          "400": {
+            "description": "Falha ao deletar uma posição"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Posições"],
+        "summary": "Atualizar uma posição",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idPosicao",
+            "description": "Atualizar uma posição",
+            "schema": {
+              "$ref": "#/definitions/Posição"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Posição"
+            }
+          },
+          "400": {
+            "description": "Falha ao atualizar uma nova posição"
+          }
+        }
+      }
+    },
+    "/veiculos": {
+      "get": {
+        "tags": ["Veículos"],
+        "summary": "Buscar os veículos registrados",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Veículo"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Veículos"],
+        "summary": "Registrar um veículo",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Registrar um veículo",
+            "schema": {
+              "$ref": "#/definitions/Veículo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Veículo"
+            }
+          },
+          "400": {
+            "description": "Falha ao criar um novo veículo"
+          }
+        }
+      }
+    },
+    "/veiculos/{idVeiculos}": {
+      "get": {
+        "tags": ["Veículos"],
+        "summary": "Buscar veículo registrada",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "idVeiculo",
+            "description": "Buscar veículo registrado",
+            "schema": {
+              "$ref": "#/definitions/idVeiculo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/idVeiculo"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Veículos"],
+        "summary": "Deletar veículo registrado",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "idPosicao",
+            "description": "Deletar veículo registrado",
+            "schema": {
+              "$ref": "#/definitions/idVeiculo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/idVeiculo"
+            }
+          },
+          "400": {
+            "description": "Falha ao deletar um veículo"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Veículos"],
+        "summary": "Atualizar um veículo",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idVeiculo",
+            "description": "Atualizar um veículo",
+            "schema": {
+              "$ref": "#/definitions/Veículo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Veículo"
+            }
+          },
+          "400": {
+            "description": "Falha ao atualizar um novo veículo"
+          }
+        }
+      }
+    },
+    "/veiculos/?linha={linhaId}": {
+      "get": {
+        "tags": ["Veículos"],
+        "summary": "Buscar veículos registrados por linha",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "linhaId",
+            "description": "Buscar veículos registrados por linha",
+            "schema": {
+              "$ref": "#/definitions/linhaId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/linhaId"
+            }
+          }
+        }
+      }
+    }
+  }
+}
