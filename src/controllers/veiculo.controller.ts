@@ -11,7 +11,7 @@ export async function getVeiculos(req: Request, res: Response): Promise<Response
 export async function createVeiculo(req: Request, res: Response) {
   const newVeiculo: Veiculo = req.body
   const conn = await connect()
-  conn.query('INSERT INTO veiculos SET ?', [newVeiculo])
+  conn.query('INSERT INTO veiculos VALUES ?', [newVeiculo])
   return res.json({
     message: 'O veículos foi criada com sucesso!',
   })

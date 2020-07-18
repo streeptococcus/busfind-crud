@@ -8,13 +8,15 @@ export async function getLinhas (req: Request, res: Response ): Promise<Response
   return res.json(linhas[0])
 }
 
-export async function createLinha(req: Request, res: Response) {
+export async function createLinha(req: Request, res: Response){
   const newLinha: Linha = req.body
-    const conn = await connect()
-    conn.query('INSERT INTO linhas SET ?', [newLinha])
-    return res.json({
-      message: 'A linha foi criada com sucesso!',
-    })
+
+  console.log(req.body)
+  const conn = await connect()
+  conn.query('INSERT INTO linhas SET ?', [newLinha])
+  return res.json({
+    message: 'A linha foi criada com sucesso!',
+  })
 }
 
 export async function getLinha (req: Request, res: Response) : Promise<Response> {
@@ -35,7 +37,8 @@ export async function deleteLinha (req: Request, res: Response) {
 
 export async function updateLinha(req: Request, res: Response) {
   const id = req.params.linhaId
-  const updateLinha: Linha = req.body
+  // const updateLinha: Linha = req.body
+  const updateLinha = { nome_linha: 'Modificado', id_parada_fk: 2 }
   const conn = await connect()
   await conn.query('UPDATE linhas SET ? WHERE id_linha = ?', [updateLinha, id])
   return res.json({

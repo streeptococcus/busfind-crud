@@ -11,7 +11,7 @@ export async function getPosicoes(req: Request, res: Response): Promise<Response
 export async function createPosicao(req: Request, res: Response) {
     const newPosicao: Posicao = req.body
     const conn = await connect()
-    conn.query('INSERT INTO posicao SET ?', [newPosicao])
+    conn.query('INSERT INTO posicao VALUES ?', [newPosicao])
     return res.json({
         message: 'A posição foi criada com sucesso!'
     })

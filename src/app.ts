@@ -1,6 +1,5 @@
 import express, { Application } from 'express'
 import morgan from 'morgan'
-import swaggerJsDocs from 'swagger-jsdoc'
 import * as swaggerOptions from '../swagger.json'
 import swaggerUi from 'swagger-ui-express'
 
@@ -21,11 +20,6 @@ export class App {
     this.settings()
     this.middlewares()
     this.routes()
-    // this.app.use(
-    //   '/api-docs',
-    //   swaggerUi.serve,
-    //   swaggerUi.setup(swaggerDocument)
-    // )
   }
 
   settings() {

@@ -26,8 +26,8 @@
     }
   ],
   "schemes": ["http"],
-  "consumes": ["aplication/json"],
-  "produces": ["aplication/json"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "definitions": {
     "idLinha": {
       "type": "object",
@@ -61,7 +61,6 @@
         }
       }
     },
-
     "idPosicao": {
       "type": "object",
       "properties": {
@@ -100,12 +99,6 @@
         },
         "id_parada_fk": {
           "type": "integer"
-        },
-        "created_at": {
-          "type": "string"
-        },
-        "modified_at": {
-          "type": "string"
         }
       }
     },
@@ -254,7 +247,7 @@
         "summary": "Atualizar uma linha",
         "parameters": [
           {
-            "in": "body",
+            "in": "path",
             "name": "idLinha",
             "description": "Atualizar uma linha",
             "schema": {
@@ -392,6 +385,12 @@
         "parameters": [
           {
             "in": "body",
+            "name": "idParada",
+            "description": "Atualizar uma parada",
+            "schema": {
+              "$ref": "#/definitions/Parada"
+            },
+            "in": "path",
             "name": "idParada",
             "description": "Atualizar uma parada",
             "schema": {
