@@ -10,7 +10,9 @@ import {
 
 const router = Router()
 
-router.route('/').get(getParadas).post(createParada)
+router.route('/')
+  .get(getParadas)
+  .post(createParada)
 
 router
   .route('/:paradaId')

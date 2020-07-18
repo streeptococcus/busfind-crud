@@ -1,4 +1,5 @@
 import mysql, { createPool } from 'mysql2/promise'
+import { createConnection } from 'mysql2'
 require('dotenv').config()
 
 export async function connect() {
@@ -9,6 +10,6 @@ export async function connect() {
     database: 'busfind',
     connectionLimit: 10,
   })
-  
+
   return connection
 }

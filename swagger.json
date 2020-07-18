@@ -9,20 +9,20 @@
   "basePath": "/",
   "tags": [
     {
-      "name": "Linhas",
-      "description": "Linhas do transporte público da cidade de São Paulo"
-    },
-    {
       "name": "Paradas",
       "description": "Paradas do transporte público da cidade de São Paulo"
     },
     {
-      "name": "Posições",
-      "description": "Posições do transporte público da cidade de São Paulo"
+      "name": "Linhas",
+      "description": "Linhas do transporte público da cidade de São Paulo"
     },
     {
       "name": "Veículos",
       "description": "Veículos do transporte público da cidade de São Paulo"
+    },
+    {
+      "name": "Posições",
+      "description": "Posições do transporte público da cidade de São Paulo"
     }
   ],
   "schemes": ["http"],
@@ -77,12 +77,17 @@
         }
       }
     },
-    "Latitude&Longitude": {
+    "Latitude": {
       "type": "object",
       "properties": {
         "latitude": {
           "type": "number"
-        },
+        }
+      }
+    },
+    "Latitude": {
+      "type": "object",
+      "properties": {
         "longitude": {
           "type": "number"
         }
@@ -91,9 +96,6 @@
     "Linha": {
       "type": "object",
       "properties": {
-        "id_linha": {
-          "type": "integer"
-        },
         "nome_linha": {
           "type": "string"
         },
@@ -122,9 +124,6 @@
     "Posição": {
       "type": "object",
       "properties": {
-        "id_posicao": {
-          "type": "integer"
-        },
         "lati": {
           "type": "number"
         },
@@ -139,9 +138,6 @@
     "Veículo": {
       "type": "object",
       "properties": {
-        "id_veiculo": {
-          "type": "integer"
-        },
         "nome_veiculo": {
           "type": "string"
         },
@@ -247,9 +243,10 @@
         "summary": "Atualizar uma linha",
         "parameters": [
           {
-            "in": "path",
+            "in": "body",
             "name": "idLinha",
             "description": "Atualizar uma linha",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/Linha"
             }
@@ -386,6 +383,7 @@
           {
             "in": "body",
             "name": "idParada",
+            "required": true,
             "description": "Atualizar uma parada",
             "schema": {
               "$ref": "#/definitions/Parada"
@@ -394,7 +392,7 @@
             "name": "idParada",
             "description": "Atualizar uma parada",
             "schema": {
-              "$ref": "#/definitions/Parada"
+              "$ref": "#/definitions/idParada"
             }
           }
         ],
@@ -417,11 +415,17 @@
         "summary": "Buscar parada registrada por identificação de parada",
         "parameters": [
           {
-            "in": "body",
-            "name": "Latitude e longitude",
+            "in": "path",
+            "name": "Latitude",
             "description": "Buscar parada registrada por identificação de parada",
             "schema": {
-              "$ref": "#/definitions/Latitude&Longitude"
+              "$ref": "#/definitions/Latitude"
+            },
+            "in": "path",
+            "name": "Longitude",
+            "description": "Buscar parada registrada por identificação de parada",
+            "schema": {
+              "$ref": "#/definitions/Longitude"
             }
           }
         ],
@@ -526,6 +530,7 @@
           {
             "in": "body",
             "name": "idPosicao",
+            "required": true,
             "description": "Atualizar uma posição",
             "schema": {
               "$ref": "#/definitions/Posição"
@@ -639,6 +644,7 @@
           {
             "in": "body",
             "name": "idVeiculo",
+            "required": true,
             "description": "Atualizar um veículo",
             "schema": {
               "$ref": "#/definitions/Veículo"

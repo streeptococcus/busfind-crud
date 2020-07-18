@@ -10,7 +10,9 @@ import {
 
 const router = Router()
 
-router.route('/').get(getVeiculos).post(createVeiculo)
+router.route('/')
+  .get(getVeiculos)
+  .post(createVeiculo)
 
 router
   .route('/:veiculoId')

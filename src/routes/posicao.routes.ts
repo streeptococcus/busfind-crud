@@ -9,7 +9,9 @@ import {
 
 const router = Router()
 
-router.route('/').get(getPosicoes).post(createPosicao)
+router.route('/')
+  .get(getPosicoes)
+  .post(createPosicao)
 
 router
   .route('/:posicaoId')

@@ -14,7 +14,7 @@ export async function getParadas(
 export async function createParada(req: Request, res: Response) {
   const newParada: Parada = req.body
   const conn = await connect()
-  conn.query('INSERT INTO paradas VALUES ?', [newParada])
+  conn.query('INSERT INTO paradas SET ?', [newParada])
   return res.json({
     message: 'A parada foi criada com sucesso!',
   })
