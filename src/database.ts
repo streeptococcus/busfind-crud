@@ -1,5 +1,4 @@
-import mysql, { createPool } from 'mysql2/promise'
-import { createConnection } from 'mysql2'
+import { createPool } from 'mysql2/promise'
 require('dotenv').config()
 
 export async function connect() {

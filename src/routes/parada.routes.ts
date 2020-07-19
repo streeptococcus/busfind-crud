@@ -21,7 +21,7 @@ router
   .put(updateParada)
 
 router
-  .route('/parada/?latitude=:lati&longitude=:longi')
+  .route('/latitude/:lati/longitude/:longi')
   .get(getParadaByPosicao)
 
 export default router

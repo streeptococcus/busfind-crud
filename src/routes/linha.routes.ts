@@ -19,7 +19,7 @@ router.route('/:linhaId')
   .delete(deleteLinha)
   .put(updateLinha)
 
-router.route('/?parada=:paradaId')
+router.route('/parada/:paradaId')
   .get(getLinhaByParada)
 
 export default router

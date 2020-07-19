@@ -46,9 +46,6 @@ export async function updateLinha(req: Request, res: Response) {
 export async function getLinhaByParada(req: Request, res: Response): Promise<Response> {
   const id = req.params.paradaId
   const conn = await connect()
-  const linhas = await conn.query(
-    'SELECT id_linha, nome_linha, linhas.created_at, linhas.modified_at, id_parada_fk FROM linhas INNER JOIN paradas WHERE id_parada = ?',
-    [id]
-  )
+  const linhas = await conn.query('SELECT * FROM linhas WHERE id_parada_fk = ?', [id])
   return res.json(linhas[0])
 }

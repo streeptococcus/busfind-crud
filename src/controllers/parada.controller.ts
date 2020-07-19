@@ -58,7 +58,6 @@ export async function getParadaByPosicao(
   const lati = req.params.posicaoLati
   const longi = req.params.posicaoLongi
   const conn = await connect()
-  const paradas = await conn.query(
-    'SELECT id_parada, nome_parada, paradas.lati, paradas.longi, paradas.created_at, paradas.modified_at FROM paradas INNER JOIN posicao WHERE posicao.lati = ? AND  posicao.longi = ?', [lati, longi])
+  const paradas = await conn.query('SELECT * FROM paradas WHERE lati = ? AND longi = ?', [lati, longi])
   return res.json(paradas[0])
 }

@@ -20,8 +20,7 @@ export async function createVeiculo(req: Request, res: Response) {
 export async function getVeiculo(req: Request, res: Response): Promise<Response> {
   const id = req.params.veiculoId
   const conn = await connect()
-  const veiculo = await conn.query(
-    'SELECT * FROM veiculos WHERE id_veiculo = ?', [id])
+  const veiculo = await conn.query('SELECT * FROM veiculos WHERE id_veiculo = ?', [id])
   return res.json(veiculo[0])
 }
 
@@ -30,7 +29,7 @@ export async function deleteVeiculo(req: Request, res: Response) {
   const conn = await connect()
   await conn.query('DELETE FROM veiculos WHERE id_veiculo = ?', [id])
   return res.json({
-    message: 'O veículo foi deletada com sucesso!',
+    message: 'O veículo foi deletado com sucesso!',
   })
 }
 
@@ -45,9 +44,8 @@ export async function updateVeiculo(req: Request, res: Response) {
 }
 
 export async function getVeiculosByLinha(req: Request, res: Response): Promise<Response> {
-  const id = req.params.linhaId
+  const linha = req.params.linhaId
   const conn = await connect()
-  const veiculos = await conn.query(
-    'SELECT id_veiculo, nome_veiculo, modelo_veiculo veiculos.created_at, veiculos.modified_at, id_linha_fk FROM veiculos INNER JOIN linhas WHERE id_linha = ?', [id])
+  const veiculos = await conn.query('SELECT * FROM veiculos linhas WHERE id_linha_fk = ?', [linha])
   return res.json(veiculos[0])
 }

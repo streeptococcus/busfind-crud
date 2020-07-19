@@ -20,6 +20,7 @@ router
   .delete(deleteVeiculo)
   .put(updateVeiculo)
 
-router.route('/?linha=:linhaId').get(getVeiculosByLinha)
+router.route('/linha/:linhaId')
+  .get(getVeiculosByLinha)
 
 export default router

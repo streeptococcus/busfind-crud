@@ -244,11 +244,18 @@
         "parameters": [
           {
             "in": "body",
-            "name": "idLinha",
+            "name": "body",
             "description": "Atualizar uma linha",
             "required": true,
             "schema": {
               "$ref": "#/definitions/Linha"
+            },
+            "in": "path",
+            "name": "idLinha",
+            "description": "Atualizar uma linha",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/idLinha"
             }
           }
         ],
@@ -271,7 +278,7 @@
         "summary": "Buscar linhas registradas por parada",
         "parameters": [
           {
-            "in": "query",
+            "in": "path",
             "name": "paradaId",
             "description": "Buscar linhas registradas por parada",
             "schema": {
@@ -334,7 +341,7 @@
         "summary": "Buscar parada registrada por identificação",
         "parameters": [
           {
-            "in": "query",
+            "in": "path",
             "name": "idParada",
             "description": "Buscar parada registrada por identificação",
             "schema": {
@@ -382,7 +389,7 @@
         "parameters": [
           {
             "in": "body",
-            "name": "idParada",
+            "name": "body",
             "required": true,
             "description": "Atualizar uma parada",
             "schema": {
@@ -500,12 +507,12 @@
       },
       "delete": {
         "tags": ["Posições"],
-        "summary": "Deletar posição registrada",
+        "summary": "Deletar posição registrada por identificação",
         "parameters": [
           {
             "in": "path",
             "name": "idPosicao",
-            "description": "Deletar posição registrada",
+            "description": "Deletar posição registrada por identificação",
             "schema": {
               "$ref": "#/definitions/idPosicao"
             }
@@ -529,11 +536,18 @@
         "parameters": [
           {
             "in": "body",
-            "name": "idPosicao",
+            "name": "body",
             "required": true,
             "description": "Atualizar uma posição",
             "schema": {
               "$ref": "#/definitions/Posição"
+            },
+            "in": "path",
+            "name": "idPosicao",
+            "required": true,
+            "description": "Atualizar uma posição",
+            "schema": {
+              "$ref": "#/definitions/idPosicao"
             }
           }
         ],
@@ -589,15 +603,15 @@
         }
       }
     },
-    "/veiculos/{idVeiculos}": {
+    "/veiculos/{idVeiculo}": {
       "get": {
         "tags": ["Veículos"],
-        "summary": "Buscar veículo registrada",
+        "summary": "Buscar veículo registrado por identificação",
         "parameters": [
           {
             "in": "path",
             "name": "idVeiculo",
-            "description": "Buscar veículo registrado",
+            "description": "Buscar veículo registrado por identificação",
             "schema": {
               "$ref": "#/definitions/idVeiculo"
             }
@@ -612,14 +626,15 @@
           }
         }
       },
+
       "delete": {
         "tags": ["Veículos"],
-        "summary": "Deletar veículo registrado",
+        "summary": "Deletar veículo registrado por identificação",
         "parameters": [
           {
             "in": "path",
-            "name": "idPosicao",
-            "description": "Deletar veículo registrado",
+            "name": "idVeiculo",
+            "description": "Deletar veículos registrada por identificação",
             "schema": {
               "$ref": "#/definitions/idVeiculo"
             }
@@ -637,17 +652,25 @@
           }
         }
       },
+
       "put": {
         "tags": ["Veículos"],
         "summary": "Atualizar um veículo",
         "parameters": [
           {
             "in": "body",
-            "name": "idVeiculo",
+            "name": "body",
             "required": true,
             "description": "Atualizar um veículo",
             "schema": {
               "$ref": "#/definitions/Veículo"
+            },
+            "in": "path",
+            "name": "idVeiculo",
+            "required": true,
+            "description": "Atualizar um veículo",
+            "schema": {
+              "$ref": "#/definitions/idVeiculo"
             }
           }
         ],
@@ -670,7 +693,7 @@
         "summary": "Buscar veículos registrados por linha",
         "parameters": [
           {
-            "in": "query",
+            "in": "path",
             "name": "linhaId",
             "description": "Buscar veículos registrados por linha",
             "schema": {
