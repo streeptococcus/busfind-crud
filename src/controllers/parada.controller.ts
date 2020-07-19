@@ -55,8 +55,8 @@ export async function getParadaByPosicao(
   req: Request,
   res: Response
 ): Promise<Response> {
-  const lati = req.params.posicaoLati
-  const longi = req.params.posicaoLongi
+  const lati = req.params.lati
+  const longi = req.params.longi
   const conn = await connect()
   const paradas = await conn.query('SELECT * FROM paradas WHERE lati = ? AND longi = ?', [lati, longi])
   return res.json(paradas[0])
