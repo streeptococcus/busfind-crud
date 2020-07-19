@@ -85,7 +85,7 @@
         }
       }
     },
-    "Latitude": {
+    "Longitude": {
       "type": "object",
       "properties": {
         "longitude": {
@@ -96,6 +96,9 @@
     "Linha": {
       "type": "object",
       "properties": {
+        "id_linha": {
+          "type": "integer"
+        },
         "nome_linha": {
           "type": "string"
         },
@@ -171,6 +174,7 @@
           {
             "in": "body",
             "name": "body",
+            "required": true,
             "description": "Registrar uma linha",
             "schema": {
               "$ref": "#/definitions/Linha"
@@ -198,6 +202,7 @@
           {
             "in": "path",
             "name": "idLinha",
+            "required": true,
             "description": "Buscar linha registrada por identificação",
             "schema": {
               "$ref": "#/definitions/idLinha"
@@ -220,6 +225,7 @@
           {
             "in": "path",
             "name": "idLinha",
+            "required": true,
             "description": "Deletar linha registrada por identificação",
             "schema": {
               "$ref": "#/definitions/idLinha"
@@ -245,6 +251,7 @@
           {
             "in": "body",
             "name": "body",
+            "required": true,
             "description": "Atualizar uma linha",
             "required": true,
             "schema": {
@@ -252,6 +259,7 @@
             },
             "in": "path",
             "name": "idLinha",
+            "required": true,
             "description": "Atualizar uma linha",
             "required": true,
             "schema": {
@@ -272,7 +280,7 @@
         }
       }
     },
-    "/linhas/?parada={paradaId}": {
+    "/linhas/parada/{paradaId}": {
       "get": {
         "tags": ["Linhas"],
         "summary": "Buscar linhas registradas por parada",
@@ -280,6 +288,7 @@
           {
             "in": "path",
             "name": "paradaId",
+            "required": true,
             "description": "Buscar linhas registradas por parada",
             "schema": {
               "$ref": "#/definitions/paradaId"
@@ -316,6 +325,7 @@
           {
             "in": "body",
             "name": "body",
+            "required": true,
             "description": "Registrar uma parada",
             "schema": {
               "$ref": "#/definitions/Parada"
@@ -343,6 +353,7 @@
           {
             "in": "path",
             "name": "idParada",
+            "required": true,
             "description": "Buscar parada registrada por identificação",
             "schema": {
               "$ref": "#/definitions/idParada"
@@ -365,6 +376,7 @@
           {
             "in": "path",
             "name": "idParada",
+            "required": true,
             "description": "Deletar parada registrada",
             "schema": {
               "$ref": "#/definitions/idParada"
@@ -397,6 +409,7 @@
             },
             "in": "path",
             "name": "idParada",
+            "required": true,
             "description": "Atualizar uma parada",
             "schema": {
               "$ref": "#/definitions/idParada"
@@ -416,7 +429,7 @@
         }
       }
     },
-    "/paradas/?latitude={latitude}&longitude={longitude}": {
+    "/paradas/latitude={latitude}/longitude={longitude}": {
       "get": {
         "tags": ["Paradas"],
         "summary": "Buscar parada registrada por identificação de parada",
@@ -424,13 +437,15 @@
           {
             "in": "path",
             "name": "Latitude",
-            "description": "Buscar parada registrada por identificação de parada",
+            "required": true,
+            "description": "Latitude da parada",
             "schema": {
               "$ref": "#/definitions/Latitude"
             },
             "in": "path",
             "name": "Longitude",
-            "description": "Buscar parada registrada por identificação de parada",
+            "required": true,
+            "description": "Longitude da parada",
             "schema": {
               "$ref": "#/definitions/Longitude"
             }
@@ -463,6 +478,7 @@
           {
             "in": "body",
             "name": "body",
+            "required": true,
             "description": "Registrar uma posição",
             "schema": {
               "$ref": "#/definitions/Posição"
@@ -490,6 +506,7 @@
           {
             "in": "path",
             "name": "idPosicao",
+            "required": true,
             "description": "Buscar posição registrada",
             "schema": {
               "$ref": "#/definitions/idPosicao"
@@ -512,6 +529,7 @@
           {
             "in": "path",
             "name": "idPosicao",
+            "required": true,
             "description": "Deletar posição registrada por identificação",
             "schema": {
               "$ref": "#/definitions/idPosicao"
@@ -584,6 +602,7 @@
           {
             "in": "body",
             "name": "body",
+            "required": true,
             "description": "Registrar um veículo",
             "schema": {
               "$ref": "#/definitions/Veículo"
@@ -611,6 +630,7 @@
           {
             "in": "path",
             "name": "idVeiculo",
+            "required": true,
             "description": "Buscar veículo registrado por identificação",
             "schema": {
               "$ref": "#/definitions/idVeiculo"
@@ -634,6 +654,7 @@
           {
             "in": "path",
             "name": "idVeiculo",
+            "required": true,
             "description": "Deletar veículos registrada por identificação",
             "schema": {
               "$ref": "#/definitions/idVeiculo"
@@ -687,7 +708,7 @@
         }
       }
     },
-    "/veiculos/?linha={linhaId}": {
+    "/veiculos/linha/{linhaId}": {
       "get": {
         "tags": ["Veículos"],
         "summary": "Buscar veículos registrados por linha",
@@ -695,6 +716,7 @@
           {
             "in": "path",
             "name": "linhaId",
+            "required": true,
             "description": "Buscar veículos registrados por linha",
             "schema": {
               "$ref": "#/definitions/linhaId"

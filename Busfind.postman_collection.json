@@ -78,7 +78,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "    {\r\n        \"id_parada\": 340015329,\r\n        \"nome_parada\": \"PARADA - AFONSO BRAZ B/C\",\r\n        \"lati\": -23.592938,\r\n        \"longi\": -46.672727\r\n    }",
+							"raw": "    {\r\n        \"nome_parada\": \"PARADA - AFONSO BRAZ B/C\"\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -86,13 +86,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/paradas/1",
+							"raw": "{{baseUrl}}/paradas/340015329",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"paradas",
-								"1"
+								"340015329"
 							]
 						}
 					},
@@ -233,7 +233,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_linha\": 35268,\r\n    \"nome_linha\": \"TERMINAL DA LAPA\",\r\n    \"id_parada_fk\": 340015329\r\n}\r\n",
+							"raw": "{\r\n    \"nome_linha\": \"TERMINAL DA LAPA\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -366,7 +366,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome_veiculo\": \"CAIO PADRÃO\",\r\n    \"modelo_veiculo\": \"VM PRATA FOSCO\",\r\n    \"id_linha_fk\": 35268\r\n}",
+							"raw": "{\r\n    \"nome_veiculo\": \"CAIO PADRÃO\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -521,7 +521,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"lati\": -23.6787125,\r\n    \"longi\": -46.65674,\r\n    \"id_veiculo_fk\": 2\r\n    \r\n}",
+							"raw": "{\r\n    \"lati\": -23.6787125    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -609,7 +609,7 @@
 	],
 	"variable": [
 		{
-			"id": "0d66ddc9-a226-4b7c-a952-860f5642fcfd",
+			"id": "72de8faf-6f71-4a40-8dd1-80b7bd6f4302",
 			"key": "baseUrl",
 			"value": "http://localhost:4001"
 		}

@@ -1,0 +1,67 @@
+{
+  "paradas": {
+    "parada1": {
+      "id_parada": 340015331,
+      "nome_parada": "AFONSO BRAZ C/B2",
+      "lati": -23.595087,
+      "longi": -46.673152
+    },
+    "parada2": {
+      "id_parada": 340015329,
+      "nome_parada": "PARADA 1 - AFONSO BRAZ B/C",
+      "lati": -23.592938,
+      "longi": -46.672727
+    },
+    "parada3": {
+      "id_parada": 340015328,
+      "nome_parada": "PARADA 2 - AFONSO BRAZ B/C",
+      "lati": -23.59337,
+      "longi": -46.672766
+    },
+    "parada4": {
+      "id_parada": 480014610,
+      "nome_parada": "TENDAL DA LAPA C/B",
+      "lati": -23.522339,
+      "longi": -46.696246
+    }
+  },
+
+  "linhas": {
+    "linha1": {
+      "id_linha": 35268,
+      "nome_linha": "TERMINAL LAPA",
+      "id_parada_fk": 340015329
+    },
+    "linha2": {
+      "id_linha": 35267,
+      "nome_linha": "ESTAÇÃO DA LAPA",
+      "id_parada_fk": 480014610
+    }
+  },
+
+  "veiculos": {
+    "veiculo1": {
+      "nome_veiculo": "CAIO PADRAO",
+      "modelo_veiculo": "VM PRATA FOSCO",
+      "id_linha_fk": 35268
+    },
+    "veiculo2": {
+      "nome_veiculo": "BUSSCAR PADRAO",
+      "modelo_veiculo": "VM PRATA FOSCO",
+      "id_linha_fk": 35267
+    }
+  },
+
+  "posições": {
+    "posicao1": {
+      "lati": -23.678712500000003,
+      "longi": -46.65674,
+      "id_veiculo_fk": 1
+    },
+    "posicao2": {
+      "lati": -23.522339,
+      "longi": -46.696246,
+      "id_veiculo_fk": 2
+    }
+  }
+}

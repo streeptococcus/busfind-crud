@@ -1,7 +1,7 @@
 {
   "name": "busfind-crud",
   "version": "1.0.0",
-  "description": "Public transportation API CRUD",
+  "description": "API para mapear o transporte público da cidade de São Paulo baseado nos dados da API Olho Vivo",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf ./dist",
